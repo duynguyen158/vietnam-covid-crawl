@@ -1,13 +1,13 @@
 {
   "name": "vn-covid-crawl",
   "version": "1.0.0",
-  "description": "",
+  "description": "Crawler for list of cases & information on Vietnam Ministry of Health's COVID-19 page.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Duy Nguyen",
   "license": "ISC",
   "dependencies": {
     "@types/cheerio": "^0.22.22",
