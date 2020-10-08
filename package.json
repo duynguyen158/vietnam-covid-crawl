@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.20.0",
-    "cheerio": "^1.0.0-rc.3"
+    "@types/cheerio": "^0.22.22",
+    "axios": "^0.20.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.3"
   }
 }

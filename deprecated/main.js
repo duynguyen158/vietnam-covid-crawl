@@ -1,4 +1,6 @@
-// CLI: node main.js
+// Deprecated files are NO LONGER IN USE
+// CLI: npm install cheerio
+//      node deprecated/main.js
 
 const axios = require("axios");
 const cheerio = require("cheerio");
