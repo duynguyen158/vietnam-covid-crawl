@@ -1,6 +1,5 @@
-import axios from "axios";
 import cheerio from "cheerio";
-import https from "https";
+import { fetchData } from "./utils";
 
 fetchCases().then((res) => {
     // Print out case list for the time being. In the future,
@@ -42,29 +41,5 @@ async function fetchCases() {
     return data;
 }
 
+// Type placeholder for Cheerio Elements
 type element = cheerio.Element;
-
-async function fetchData(url: string) {
-    console.log(`...Crawling from ${url}...`);
-
-    // We're only acessing the page for data, so disabling client verification is fine
-    const httpsAgent = new https.Agent({
-        rejectUnauthorized: false,
-    });
-
-    // Make HTTP call to URL
-    try {
-        const response = await axios.get<string>(url, { httpsAgent });
-        const { status, statusText } = response;
-        // 200 = Sucessful
-        if (status !== 200) {
-            console.log(`Failed to fetch. CODE ${status}: ${statusText}`);
-            return;
-        }
-        return response;
-    } catch (error) {
-        // Print out errors and return undefined;
-        console.log(error);
-        return;
-    }
-}
