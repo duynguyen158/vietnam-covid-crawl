@@ -9,6 +9,8 @@ async function fetchAnnouncements() {
 
     const data = new Array<Object>();
 
+    console.log("\n----------FETCHING ANNOUNCEMENTS----------");
+
     // Announcement timeline is paginated, so a do-while loop takes us to next page.
     do {
         // Fetch

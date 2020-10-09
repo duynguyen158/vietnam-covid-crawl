@@ -6,6 +6,8 @@ import { fetchData, validate } from "./utils";
 async function fetchCases() {
     const url = "https://ncov.moh.gov.vn";
 
+    console.log("\n----------FETCHING CASES----------");
+
     // Fetch
     const response = await fetchData(url);
 
