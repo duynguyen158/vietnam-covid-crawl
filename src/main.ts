@@ -1,5 +1,5 @@
 import fetchCases from "./fetchCases";
-import fetchAnnouncements from "./fetchAnnouncements";
+import fetchAnnouncements from "./fetchAnns";
 
 fetchCases().then((response) => {
     // Print out case list for the time being. In the future,

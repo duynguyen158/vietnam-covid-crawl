@@ -1,3 +1,5 @@
+// Fetch list of COVID-19 cases confirmed by MIH
+
 import cheerio from "cheerio";
 import { fetchData, validate } from "./utils";
 

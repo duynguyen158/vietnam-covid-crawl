@@ -1,3 +1,5 @@
+// Fetch list of MIH announcements
+
 import cheerio from "cheerio";
 import { fetchData, validate } from "./utils";
 
