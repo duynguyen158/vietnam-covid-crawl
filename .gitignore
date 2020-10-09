@@ -1,6 +1,11 @@
-build/*
+build/
 
-node_modules/*
+# Keep examples for reference
+/data/*
+!data/examples/
+
+# Dependencies should be installed via npm or yarn
+node_modules/
 
 .DS_Store
 
