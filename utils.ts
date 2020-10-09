@@ -7,7 +7,7 @@ import https from "https";
  * @param url URL from which to fetch
  */
 export async function fetchData(url: string) {
-    console.log(`...Crawling from ${url}...`);
+    console.log(`\n..........Crawling from ${url}..........`);
 
     // We're only acessing the page for data, so disabling client verification is fine
     const httpsAgent = new https.Agent({
