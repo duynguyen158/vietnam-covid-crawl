@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import https from "https";
 
 /**
- * Send an HTTP request to a web page. If the request goes through, 
+ * Send an HTTP request to a web page. If the request goes through,
  * the response will carry the page's HTML layout & data.
  * @param url URL from which to fetch
  */
@@ -29,4 +29,19 @@ export async function fetchData(url: string) {
         console.log(error);
         return;
     }
+}
+
+/**
+ * Check if an HTTP response returned by `fetchData()` contains a valid data object.
+ * If it does, return that data object.
+ * @param response Response to check
+ */
+export function validate(response: AxiosResponse<string> | undefined) {
+    if (!response) return; // If response is invalid
+    if (!response.data) {
+        // If data of response is invalid
+        console.log("Invalid data object");
+        return;
+    }
+    return response.data;
 }

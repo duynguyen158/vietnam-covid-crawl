@@ -1,5 +1,5 @@
 import cheerio from "cheerio";
-import { fetchData } from "./utils";
+import { fetchData, validate } from "./utils";
 
 fetchCases().then((res) => {
     // Print out case list for the time being. In the future,
@@ -11,29 +11,23 @@ async function fetchCases() {
     const url = "https://ncov.moh.gov.vn";
 
     // Fetch
-    const res = await fetchData(url);
+    const response = await fetchData(url);
 
     // Validate
-    if (!res) return;   // If response is undefined
-    if (!res.data) {    // If response.data is undefined
-        console.log("Invalid data object");
-        return;
-    }
+    const html = validate(response);
+    if (html === undefined) return;
 
-    const html = res.data;
     // Mount HTML page to root element
     const $ = cheerio.load(html);
 
-    const data: string[][] = new Array();
+    const data = new Array<string[]>();
     const table = $(".table.table-striped.table-covid19 > tbody > tr");
 
     // Loop through all table rows
-    table.each(function (this: element) {
-        const datum: string[] = $(this)
+    table.each((_, d: element) => {
+        const datum: string[] = $(d)
             .find("td")
-            .map(function (this: element) {
-                return $(this).text();
-            })
+            .map((_, d: element) => $(d).text())
             .get();
         data.push(datum);
     });
