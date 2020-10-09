@@ -32,7 +32,7 @@ export async function fetchData(url: string) {
 }
 
 /**
- * Check if an HTTP response returned by `fetchData()` contains a valid data object.
+ * Check if an HTTP response returned by `fetchData` contains a valid data object.
  * If it does, return that data object.
  * @param response Response to check
  */
