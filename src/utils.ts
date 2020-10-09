@@ -7,7 +7,7 @@ import https from "https";
  * @param url URL from which to fetch
  */
 export async function fetchData(url: string) {
-    console.log(`\n..........Crawling from ${url}..........`);
+    console.log(`..........Crawling from ${url}..........`);
 
     // We're only acessing the page for data, so disabling client verification is fine
     const httpsAgent = new https.Agent({
@@ -44,4 +44,20 @@ export function validate(response: AxiosResponse<string> | undefined) {
         return;
     }
     return response.data;
+}
+
+/**
+ * Get timestamp at the moment of calling, in UTC time.
+ */
+export function getTimestamp() {
+    return new Date().toLocaleString("en-GB", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        timeZone: "UTC",
+        timeZoneName: "short",
+    });
 }
