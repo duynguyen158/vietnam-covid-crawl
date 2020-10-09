@@ -28,7 +28,7 @@ async function fetchAnnouncements() {
         const prefix = "li > .timeline > .timeline-detail";
         timeline.each((_, d: cheerio.Element) => {
             // Timestamp (HH:MM d/m/Y, GMT+7)
-            const timestamp = $(d)
+            const vnTimestamp = $(d)
                 .find(`${prefix} > .timeline-head > h3`)
                 .text();
 
@@ -38,7 +38,7 @@ async function fetchAnnouncements() {
                 .map((_, d: cheerio.Element) => $(d).text())
                 .get();
 
-            data.push({ timestamp, paragraphs });
+            data.push({ vnTimestamp, paragraphs });
         });
 
         // Button to next page
