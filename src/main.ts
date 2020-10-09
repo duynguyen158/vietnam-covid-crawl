@@ -23,10 +23,12 @@ fetchCases().then((response) => {
     }
 });
 
+// Save announcement timeline to local data folder. In the future, may use
+// worker_threads to process & push to a remote database.
 fetchAnnouncements().then((response) => {
     // Start worker
     const worker = new Worker(announcementsWorkDir);
-    console.log("Sending case data to casesWorker...");
+    console.log("Sending case data to announcementsWorker...");
 
     // Send to cases worker thread
     worker.postMessage(response);
